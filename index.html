@@ -370,10 +370,17 @@
       background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 24px; padding: 36px 28px; display: flex; flex-direction: column; transition: all 0.3s ease;
     }
+    .pricing-card { cursor: pointer; }
     .pricing-card:hover { transform: translateY(-4px); }
+    .pricing-card.selected {
+      background: linear-gradient(135deg, rgba(124, 106, 255, 0.12), rgba(0, 212, 255, 0.06));
+      border-color: rgba(124, 106, 255, 0.35); position: relative;
+      transform: translateY(-6px); box-shadow: 0 0 40px rgba(124, 106, 255, 0.15), 0 0 80px rgba(124, 106, 255, 0.05);
+    }
+    .pricing-card:not(.selected) { opacity: 0.6; }
+    .pricing-card:not(.selected):hover { opacity: 0.85; }
     .pricing-card.featured {
-      background: linear-gradient(135deg, rgba(124, 106, 255, 0.1), rgba(0, 212, 255, 0.05));
-      border-color: rgba(124, 106, 255, 0.25); position: relative;
+      position: relative;
     }
     .pricing-badge {
       position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
@@ -795,7 +802,7 @@
         <span class="rank-chip">&#128218; Bookworm</span><span class="rank-arrow">&rarr;</span>
         <span class="rank-chip">&#129514; Brainiac</span><span class="rank-arrow">&rarr;</span>
         <span class="rank-chip">&#129504; Mastermind</span><span class="rank-arrow">&rarr;</span>
-        <span class="rank-chip">&#128142; Genius</span>><span class="rank-arrow">&rarr;</span>
+        <span class="rank-chip">&#128142; Genius</span><span class="rank-arrow">&rarr;</span>
         <span class="rank-chip active">&#128081; Big Brain</span>
       </div>
     </div>
@@ -810,7 +817,7 @@
         <p>Big Brain is free to download with generous limits. Upgrade to Pro for unlimited everything.</p>
       </div>
       <div class="pricing-grid">
-        <div class="pricing-card fade-up">
+        <div class="pricing-card fade-up" onclick="selectPlan(this)">
           <div class="pricing-tier">Free</div>
           <div class="pricing-price">$0</div>
           <div class="pricing-sub">Free forever</div>
@@ -824,7 +831,7 @@
           </ul>
           <a href="#download" class="btn btn-glass btn-full">Get Started</a>
         </div>
-        <div class="pricing-card featured fade-up">
+        <div class="pricing-card featured selected fade-up" onclick="selectPlan(this)">
           <div class="pricing-badge">Most Popular</div>
           <div class="pricing-tier">Pro Yearly</div>
           <div class="pricing-price">$29.99<span>/year</span></div>
@@ -840,7 +847,7 @@
           </ul>
           <a href="#download" class="btn btn-primary btn-full">Start Free Trial</a>
         </div>
-        <div class="pricing-card fade-up">
+        <div class="pricing-card fade-up" onclick="selectPlan(this)">
           <div class="pricing-tier">Pro Monthly</div>
           <div class="pricing-price">$4.99<span>/month</span></div>
           <div class="pricing-sub">7-day free trial</div>
@@ -934,6 +941,11 @@
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    // Pricing card selection
+    function selectPlan(card) {
+      document.querySelectorAll('.pricing-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+    }
   </script>
 </body>
 </html>
