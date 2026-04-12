@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Big Brain — Your AI Study Companion</title>
+  <meta name="description" content="Big Brain is the ultimate AI-powered study app. IQ tests, AI tutoring, quizzes, flashcards, voice notes, and more. Study smarter, not harder.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <img src="logo.png" alt="Big Brain" class="nav-logo-img">
+        <span class="nav-logo-text">Big Brain</span>
+      </a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#iq-test">IQ Test</a>
+        <a href="#subjects">Subjects</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#download" class="nav-cta">Download</a>
+      </div>
+      <button class="nav-menu" id="navMenu" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <a href="#features">Features</a>
+      <a href="#iq-test">IQ Test</a>
+      <a href="#subjects">Subjects</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#download" class="nav-cta">Download</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <div class="hero-badge">AI-Powered Study Companion</div>
+      <h1 class="hero-title">Study Smarter<br>with <span class="gradient-text">Big Brain</span></h1>
+      <p class="hero-subtitle">The all-in-one study app with AI tutoring, IQ tests, quizzes, flashcards, voice notes, and 12 subjects. Everything you need to ace your classes.</p>
+      <div class="hero-buttons">
+        <a href="#download" class="btn btn-primary btn-lg">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          App Store — Coming Soon
+        </a>
+        <a href="#download" class="btn btn-secondary btn-lg">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.807 1.626a1 1 0 010 1.732l-2.807 1.626L15.206 12l2.492-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
+          Google Play — Coming Soon
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-number">12</span>
+          <span class="hero-stat-label">Subjects</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-number">90+</span>
+          <span class="hero-stat-label">IQ Questions</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-number">40+</span>
+          <span class="hero-stat-label">Achievements</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Features</div>
+        <h2 class="section-title">Everything You Need to <span class="gradient-text">Study Smarter</span></h2>
+        <p class="section-subtitle">Big Brain packs powerful AI tools, gamification, and study utilities into one beautiful app.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card feature-card-large">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #6C5CE7, #A29BFE);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+          </div>
+          <h3 class="feature-title">AI Tutor</h3>
+          <p class="feature-desc">Ask any question on any subject and get instant, detailed explanations from your personal AI tutor. Like having a genius friend available 24/7.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #E17055, #FDCB6E);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          </div>
+          <h3 class="feature-title">AI Quizzes</h3>
+          <p class="feature-desc">Generate quizzes on any topic with AI. Choose difficulty, number of questions, and get instant feedback with detailed explanations.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #00B894, #55EFC4);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+          </div>
+          <h3 class="feature-title">Notes to Podcast</h3>
+          <p class="feature-desc">Convert your study notes into audio podcasts. Listen and learn on the go — perfect for commutes and workouts.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #E84393, #FD79A8);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+          </div>
+          <h3 class="feature-title">Flashcards</h3>
+          <p class="feature-desc">Create and study flashcard decks. AI can generate them for you from any topic. Flip to reveal and master your material.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #0984E3, #74B9FF);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3zm5 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-2.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
+          </div>
+          <h3 class="feature-title">Voice Recording</h3>
+          <p class="feature-desc">Record lectures and voice notes. AI transcribes the audio and generates structured study notes automatically.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #FDCB6E, #F39C12);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+          </div>
+          <h3 class="feature-title">Focus Timer</h3>
+          <p class="feature-desc">Pomodoro technique built in. 25 minutes of focused study, 5-minute breaks. Track your total study time and build consistency.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #3B82F6, #93C5FD);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+          </div>
+          <h3 class="feature-title">Doc Analyzer</h3>
+          <p class="feature-desc">Drop in any text document and let AI analyze it. Get summaries, key points, and insights in seconds.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #636E72, #B2BEC3);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+          </div>
+          <h3 class="feature-title">Study Planner</h3>
+          <p class="feature-desc">Plan your study sessions and daily goals. Stay organized and on track with structured scheduling.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IQ Test Section -->
+  <section class="section section-dark" id="iq-test">
+    <div class="container">
+      <div class="iq-layout">
+        <div class="iq-content">
+          <div class="section-badge">IQ Test</div>
+          <h2 class="section-title">See How Big<br>Your <span class="gradient-text">Brain</span> Really Is</h2>
+          <p class="section-subtitle" style="text-align: left;">Take a real, standardized IQ test modeled after official tests like WAIS-5 and Raven's Progressive Matrices. No gimmicks — just science.</p>
+          <div class="iq-features">
+            <div class="iq-feature">
+              <div class="iq-feature-icon">🧠</div>
+              <div>
+                <h4>5 Cognitive Domains</h4>
+                <p>Pattern Recognition, Number Sequences, Verbal Reasoning, Spatial Reasoning, and Logical Reasoning</p>
+              </div>
+            </div>
+            <div class="iq-feature">
+              <div class="iq-feature-icon">📊</div>
+              <div>
+                <h4>Real Scoring</h4>
+                <p>Standard normal distribution (mean 100, SD 15) with percentile ranks and IQ classifications</p>
+              </div>
+            </div>
+            <div class="iq-feature">
+              <div class="iq-feature-icon">🔄</div>
+              <div>
+                <h4>90 Questions, 30 Per Test</h4>
+                <p>Each test randomly selects 30 questions so every retake feels completely different</p>
+              </div>
+            </div>
+            <div class="iq-feature">
+              <div class="iq-feature-icon">⏱️</div>
+              <div>
+                <h4>No Time Pressure</h4>
+                <p>Take as long as you need. Time is tracked and factored into your score — faster completion earns a bonus</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="iq-visual">
+          <div class="iq-score-card">
+            <div class="iq-score-label">Your IQ Score</div>
+            <div class="iq-score-circle">
+              <span class="iq-score-number">128</span>
+            </div>
+            <div class="iq-score-class">Superior</div>
+            <div class="iq-score-percentile">97th Percentile</div>
+            <div class="iq-domains">
+              <div class="iq-domain">
+                <span>Pattern Recognition</span>
+                <div class="iq-bar"><div class="iq-bar-fill" style="width: 90%"></div></div>
+              </div>
+              <div class="iq-domain">
+                <span>Number Sequences</span>
+                <div class="iq-bar"><div class="iq-bar-fill" style="width: 75%"></div></div>
+              </div>
+              <div class="iq-domain">
+                <span>Verbal Reasoning</span>
+                <div class="iq-bar"><div class="iq-bar-fill" style="width: 85%"></div></div>
+              </div>
+              <div class="iq-domain">
+                <span>Spatial Reasoning</span>
+                <div class="iq-bar"><div class="iq-bar-fill" style="width: 80%"></div></div>
+              </div>
+              <div class="iq-domain">
+                <span>Logical Reasoning</span>
+                <div class="iq-bar"><div class="iq-bar-fill" style="width: 95%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subjects Section -->
+  <section class="section" id="subjects">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Subjects</div>
+        <h2 class="section-title">12 Subjects with <span class="gradient-text">Specialized Tools</span></h2>
+        <p class="section-subtitle">Each subject comes with its own set of AI-powered tools designed specifically for that field.</p>
+      </div>
+      <div class="subjects-grid">
+        <div class="subject-card" style="--accent: #6C5CE7;">
+          <div class="subject-icon">📐</div>
+          <h4>Mathematics</h4>
+          <p>Calculator, Graphing, Formula Reference, AI Problem Solver</p>
+        </div>
+        <div class="subject-card" style="--accent: #00B894;">
+          <div class="subject-icon">🔬</div>
+          <h4>Science</h4>
+          <p>Periodic Table, Unit Converter, Molarity Calculator, Lab Notes</p>
+        </div>
+        <div class="subject-card" style="--accent: #E17055;">
+          <div class="subject-icon">📖</div>
+          <h4>English</h4>
+          <p>Writing Prompts, Vocabulary Builder, Grammar Guide, AI Detector</p>
+        </div>
+        <div class="subject-card" style="--accent: #FDCB6E;">
+          <div class="subject-icon">🏛️</div>
+          <h4>History</h4>
+          <p>Timeline Explorer, Key Dates, Historical Figures</p>
+        </div>
+        <div class="subject-card" style="--accent: #0984E3;">
+          <div class="subject-icon">🌍</div>
+          <h4>Geography</h4>
+          <p>Map Explorer, Country Facts, Climate Data</p>
+        </div>
+        <div class="subject-card" style="--accent: #00CEC9;">
+          <div class="subject-icon">💻</div>
+          <h4>Computer Science</h4>
+          <p>CS Concepts, Algorithms Guide, Tech Glossary</p>
+        </div>
+        <div class="subject-card" style="--accent: #E84393;">
+          <div class="subject-icon">🎨</div>
+          <h4>Art & Design</h4>
+          <p>Color Theory, Art Movements, Techniques</p>
+        </div>
+        <div class="subject-card" style="--accent: #636E72;">
+          <div class="subject-icon">📈</div>
+          <h4>Economics</h4>
+          <p>Key Terms, Graph Templates, Formulas</p>
+        </div>
+        <div class="subject-card" style="--accent: #EF4444;">
+          <div class="subject-icon">🇪🇸</div>
+          <h4>Spanish</h4>
+          <p>Vocabulary, Verb Conjugation, Key Phrases</p>
+        </div>
+        <div class="subject-card" style="--accent: #3B82F6;">
+          <div class="subject-icon">🇫🇷</div>
+          <h4>French</h4>
+          <p>Vocabulary, Verb Conjugation, Key Phrases</p>
+        </div>
+        <div class="subject-card" style="--accent: #F59E0B;">
+          <div class="subject-icon">🇨🇳</div>
+          <h4>Mandarin</h4>
+          <p>Character Practice, Pinyin Guide, Key Phrases</p>
+        </div>
+        <div class="subject-card" style="--accent: #8B5CF6;">
+          <div class="subject-icon">🇩🇪</div>
+          <h4>German</h4>
+          <p>Vocabulary, Verb Conjugation, Key Phrases</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gamification Section -->
+  <section class="section section-dark" id="gamification">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Gamification</div>
+        <h2 class="section-title">Level Up Your <span class="gradient-text">Learning</span></h2>
+        <p class="section-subtitle">Earn XP, unlock achievements, climb ranks, and maintain streaks. Learning has never been this addictive.</p>
+      </div>
+      <div class="gamification-grid">
+        <div class="gamification-card">
+          <div class="gamification-icon">⚡</div>
+          <h3>XP & Leveling</h3>
+          <p>Earn XP for everything you do — quizzes, notes, study sessions. Level up and watch your progress grow.</p>
+        </div>
+        <div class="gamification-card">
+          <div class="gamification-icon">🔥</div>
+          <h3>Daily Streaks</h3>
+          <p>Keep your streak alive by studying every day. See your current and best streaks on your profile.</p>
+        </div>
+        <div class="gamification-card">
+          <div class="gamification-icon">🏆</div>
+          <h3>40+ Achievements</h3>
+          <p>Unlock achievements across 6 categories: Streaks, Quizzes, Notes, Study Time, Flashcards, and Milestones.</p>
+        </div>
+        <div class="gamification-card">
+          <div class="gamification-icon">👑</div>
+          <h3>Ranks & Titles</h3>
+          <p>Climb from Newbie all the way to Big Brain. Unlock and equip display titles like "Galaxy Brain" and "Quiz God".</p>
+        </div>
+      </div>
+      <div class="ranks-display">
+        <div class="rank">🌱 Newbie</div>
+        <div class="rank-arrow">&rarr;</div>
+        <div class="rank">📚 Bookworm</div>
+        <div class="rank-arrow">&rarr;</div>
+        <div class="rank">🧪 Brainiac</div>
+        <div class="rank-arrow">&rarr;</div>
+        <div class="rank">🧠 Mastermind</div>
+        <div class="rank-arrow">&rarr;</div>
+        <div class="rank">💎 Genius</div>
+        <div class="rank-arrow">&rarr;</div>
+        <div class="rank rank-highlight">👑 Big Brain</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Pricing</div>
+        <h2 class="section-title">Start Free, Go <span class="gradient-text">Pro</span></h2>
+        <p class="section-subtitle">Big Brain is free to download with generous free limits. Upgrade to Pro for unlimited everything.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-tier">Free</div>
+          <div class="pricing-price">$0</div>
+          <div class="pricing-period">forever</div>
+          <ul class="pricing-features">
+            <li><span class="check">&#10003;</span> All 12 subjects</li>
+            <li><span class="check">&#10003;</span> Subject-specific tools</li>
+            <li><span class="check">&#10003;</span> Limited AI questions</li>
+            <li><span class="check">&#10003;</span> Limited recordings</li>
+            <li><span class="check">&#10003;</span> Limited quizzes</li>
+            <li><span class="check">&#10003;</span> XP, levels & achievements</li>
+            <li><span class="check">&#10003;</span> Focus timer</li>
+            <li><span class="check">&#10003;</span> Study planner</li>
+          </ul>
+          <a href="#download" class="btn btn-secondary btn-full">Get Started</a>
+        </div>
+        <div class="pricing-card pricing-card-featured">
+          <div class="pricing-popular">Most Popular</div>
+          <div class="pricing-tier">Pro Yearly</div>
+          <div class="pricing-price">$29.99<span class="pricing-slash">/year</span></div>
+          <div class="pricing-period">$2.50/month &middot; 7-day free trial</div>
+          <ul class="pricing-features">
+            <li><span class="check">&#10003;</span> Everything in Free</li>
+            <li><span class="check pro">&#10003;</span> Unlimited AI help</li>
+            <li><span class="check pro">&#10003;</span> Unlimited recordings</li>
+            <li><span class="check pro">&#10003;</span> Unlimited quizzes</li>
+            <li><span class="check pro">&#10003;</span> Unlimited flashcards</li>
+            <li><span class="check pro">&#10003;</span> Notes to podcast</li>
+            <li><span class="check pro">&#10003;</span> Document analyzer</li>
+            <li><span class="check pro">&#10003;</span> No ads ever</li>
+            <li><span class="check pro">&#10003;</span> Priority support</li>
+          </ul>
+          <a href="#download" class="btn btn-primary btn-full">Start Free Trial</a>
+        </div>
+        <div class="pricing-card">
+          <div class="pricing-tier">Pro Monthly</div>
+          <div class="pricing-price">$4.99<span class="pricing-slash">/month</span></div>
+          <div class="pricing-period">7-day free trial</div>
+          <ul class="pricing-features">
+            <li><span class="check">&#10003;</span> Everything in Free</li>
+            <li><span class="check pro">&#10003;</span> Unlimited AI help</li>
+            <li><span class="check pro">&#10003;</span> Unlimited recordings</li>
+            <li><span class="check pro">&#10003;</span> Unlimited quizzes</li>
+            <li><span class="check pro">&#10003;</span> Unlimited flashcards</li>
+            <li><span class="check pro">&#10003;</span> Notes to podcast</li>
+            <li><span class="check pro">&#10003;</span> Document analyzer</li>
+            <li><span class="check pro">&#10003;</span> No ads ever</li>
+            <li><span class="check pro">&#10003;</span> Priority support</li>
+          </ul>
+          <a href="#download" class="btn btn-secondary btn-full">Start Free Trial</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download CTA Section -->
+  <section class="section section-cta" id="download">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">Ready to Get a <span class="gradient-text">Bigger Brain</span>?</h2>
+        <p class="cta-subtitle">Download Big Brain for free and start studying smarter today.</p>
+        <div class="hero-buttons" style="justify-content: center;">
+          <a href="#" class="btn btn-primary btn-lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            App Store — Coming Soon
+          </a>
+          <a href="#" class="btn btn-secondary btn-lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.807 1.626a1 1 0 010 1.732l-2.807 1.626L15.206 12l2.492-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
+            Google Play — Coming Soon
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="logo.png" alt="Big Brain" class="footer-logo-img">
+            <span>Big Brain</span>
+          </div>
+          <p class="footer-tagline">Your AI Study Companion</p>
+          <p class="footer-copyright">&copy; 2025 DPC Developments. All rights reserved.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Product</h4>
+          <a href="#features">Features</a>
+          <a href="#iq-test">IQ Test</a>
+          <a href="#subjects">Subjects</a>
+          <a href="#pricing">Pricing</a>
+        </div>
+        <div class="footer-links">
+          <h4>Legal</h4>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+        <div class="footer-links">
+          <h4>Support</h4>
+          <a href="support.html">Contact Us</a>
+          <a href="support.html">Help & FAQ</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const menuBtn = document.getElementById('navMenu');
+    const mobileNav = document.getElementById('navMobile');
+    menuBtn.addEventListener('click', () => {
+      mobileNav.classList.toggle('open');
+      menuBtn.classList.toggle('open');
+    });
+    // Close mobile nav on link click
+    mobileNav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        menuBtn.classList.remove('open');
+      });
+    });
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      document.querySelector('.nav').classList.toggle('scrolled', window.scrollY > 20);
+    });
+    // Animate on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.feature-card, .subject-card, .gamification-card, .pricing-card, .iq-feature').forEach(el => {
+      el.classList.add('animate-in');
+      observer.observe(el);
+    });
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
