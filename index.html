@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Big Brain — AI-Powered Study Companion</title>
-  <meta name="description" content="Big Brain is the ultimate AI-powered study app. IQ tests, AI tutoring, quizzes, flashcards, voice notes, and more. Study smarter, not harder.">
+  <meta name="description" content="Big Brain is the ultimate AI-powered study app. AI tutoring, quizzes, flashcards, voice notes, 12 subjects, and more. Study smarter, not harder.">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,882 +51,9 @@
       background: #7C6AFF;
       border-radius: 1px;
     }
-
-    /* ===== NAVIGATION ===== */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      padding: 16px 0;
-      transition: all 0.3s ease;
-    }
-    .nav.scrolled {
-      background: rgba(8, 9, 14, 0.85);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(124, 106, 255, 0.08);
-      padding: 12px 0;
-    }
-    .nav-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 20px;
-      color: #fff;
-    }
-    .nav-logo img {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-    }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-    }
-    .nav-links a {
-      font-size: 14px;
-      font-weight: 500;
-      color: #9CA3AF;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: #fff; }
-    .nav-cta {
-      background: linear-gradient(135deg, #7C6AFF, #5B4AE0);
-      color: #fff !important;
-      padding: 10px 24px;
-      border-radius: 100px;
-      font-weight: 600 !important;
-      font-size: 14px;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .nav-cta:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 8px 24px rgba(124, 106, 255, 0.3);
-    }
-    .nav-menu {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 4px;
-    }
-    .nav-menu span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: #fff;
-      border-radius: 2px;
-      transition: all 0.3s;
-    }
-    .nav-menu.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .nav-menu.open span:nth-child(2) { opacity: 0; }
-    .nav-menu.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .nav-mobile {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(8, 9, 14, 0.97);
-      backdrop-filter: blur(20px);
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 32px;
-      z-index: 999;
-    }
-    .nav-mobile.open { display: flex; }
-    .nav-mobile a {
-      font-size: 24px;
-      font-weight: 600;
-      color: #E2E4EA;
-    }
-
-    /* ===== HERO ===== */
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 120px 24px 80px;
-      overflow: hidden;
-    }
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-    .hero-bg::before {
-      content: '';
-      position: absolute;
-      top: -40%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 800px;
-      height: 800px;
-      background: radial-gradient(circle, rgba(124, 106, 255, 0.15) 0%, rgba(0, 212, 255, 0.05) 40%, transparent 70%);
-      border-radius: 50%;
-    }
-    .hero-bg::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 200px;
-      background: linear-gradient(to top, #08090E, transparent);
-    }
-    .hero-grid {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(124, 106, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(124, 106, 255, 0.03) 1px, transparent 1px);
-      background-size: 60px 60px;
-      mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
-      -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
-    }
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 800px;
-    }
-    .hero-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(124, 106, 255, 0.1);
-      border: 1px solid rgba(124, 106, 255, 0.2);
-      border-radius: 100px;
-      padding: 8px 20px;
-      font-size: 13px;
-      font-weight: 600;
-      color: #A99AFF;
-      margin-bottom: 32px;
-    }
-    .hero-pill-dot {
-      width: 6px;
-      height: 6px;
-      background: #7C6AFF;
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
-    }
-    .hero h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(40px, 7vw, 72px);
-      font-weight: 700;
-      line-height: 1.05;
-      color: #fff;
-      margin-bottom: 24px;
-      letter-spacing: -1.5px;
-    }
-    .hero p {
-      font-size: clamp(16px, 2vw, 19px);
-      color: #9CA3AF;
-      max-width: 560px;
-      margin: 0 auto 40px;
-      line-height: 1.7;
-    }
-    .hero-buttons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 56px;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 28px;
-      border-radius: 14px;
-      font-size: 15px;
-      font-weight: 600;
-      transition: all 0.25s ease;
-      cursor: pointer;
-      border: none;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, #7C6AFF, #5B4AE0);
-      color: #fff;
-      box-shadow: 0 4px 20px rgba(124, 106, 255, 0.25);
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(124, 106, 255, 0.4);
-    }
-    .btn-glass {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #fff;
-      backdrop-filter: blur(8px);
-    }
-    .btn-glass:hover {
-      background: rgba(255, 255, 255, 0.1);
-      transform: translateY(-2px);
-    }
-    .btn svg { width: 20px; height: 20px; flex-shrink: 0; }
-    .hero-stats {
-      display: flex;
-      justify-content: center;
-      gap: 48px;
-      flex-wrap: wrap;
-    }
-    .hero-stat { text-align: center; }
-    .hero-stat-num {
-      display: block;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 32px;
-      font-weight: 700;
-      color: #fff;
-    }
-    .hero-stat-text {
-      font-size: 13px;
-      color: #6B7280;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    /* ===== FEATURES ===== */
-    .features {
-      padding: 120px 0;
-      position: relative;
-    }
-    .features-header {
-      text-align: center;
-      margin-bottom: 64px;
-    }
-    .features-header h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(28px, 4vw, 44px);
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: -0.5px;
-      margin-bottom: 16px;
-    }
-    .features-header p {
-      font-size: 17px;
-      color: #9CA3AF;
-      max-width: 520px;
-      margin: 0 auto;
-    }
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    .feature-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 20px;
-      padding: 32px;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .feature-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(124, 106, 255, 0.3), transparent);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .feature-card:hover {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: rgba(124, 106, 255, 0.15);
-      transform: translateY(-4px);
-    }
-    .feature-card:hover::before { opacity: 1; }
-    .feature-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-      font-size: 24px;
-    }
-    .feature-card h3 {
-      font-size: 17px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 8px;
-    }
-    .feature-card p {
-      font-size: 14px;
-      color: #6B7280;
-      line-height: 1.6;
-    }
-    .feature-highlight {
-      grid-column: span 2;
-      background: linear-gradient(135deg, rgba(124, 106, 255, 0.08), rgba(0, 212, 255, 0.04));
-      border-color: rgba(124, 106, 255, 0.12);
-    }
-    .feature-highlight .feature-icon {
-      background: linear-gradient(135deg, #7C6AFF, #00D4FF);
-    }
-
-    /* ===== IQ TEST ===== */
-    .iq-section {
-      padding: 120px 0;
-      position: relative;
-      overflow: hidden;
-    }
-    .iq-section::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      right: -200px;
-      transform: translateY(-50%);
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(124, 106, 255, 0.08), transparent 70%);
-      border-radius: 50%;
-    }
-    .iq-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-    .iq-content h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(28px, 4vw, 44px);
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: -0.5px;
-      margin-bottom: 20px;
-      line-height: 1.1;
-    }
-    .iq-content > p {
-      font-size: 17px;
-      color: #9CA3AF;
-      margin-bottom: 40px;
-      line-height: 1.7;
-    }
-    .iq-features { display: flex; flex-direction: column; gap: 24px; }
-    .iq-feat {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-    }
-    .iq-feat-icon {
-      width: 40px;
-      height: 40px;
-      min-width: 40px;
-      border-radius: 12px;
-      background: rgba(124, 106, 255, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-    }
-    .iq-feat h4 {
-      font-size: 15px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 4px;
-    }
-    .iq-feat p {
-      font-size: 13px;
-      color: #6B7280;
-      line-height: 1.5;
-    }
-    .iq-visual {
-      display: flex;
-      justify-content: center;
-    }
-    .iq-card {
-      width: 320px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 24px;
-      padding: 40px 32px;
-      text-align: center;
-      position: relative;
-    }
-    .iq-card::before {
-      content: '';
-      position: absolute;
-      inset: -1px;
-      border-radius: 24px;
-      padding: 1px;
-      background: linear-gradient(135deg, rgba(124, 106, 255, 0.3), transparent, rgba(0, 212, 255, 0.2));
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      mask-composite: exclude;
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      pointer-events: none;
-    }
-    .iq-card-label {
-      font-size: 12px;
-      font-weight: 600;
-      color: #6B7280;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 24px;
-    }
-    .iq-score-ring {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(124, 106, 255, 0.15), rgba(0, 212, 255, 0.1));
-      border: 3px solid rgba(124, 106, 255, 0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 16px;
-    }
-    .iq-score-num {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 48px;
-      font-weight: 700;
-      color: #fff;
-    }
-    .iq-class {
-      font-size: 18px;
-      font-weight: 700;
-      color: #7C6AFF;
-      margin-bottom: 4px;
-    }
-    .iq-percentile {
-      font-size: 13px;
-      color: #6B7280;
-      margin-bottom: 28px;
-    }
-    .iq-domains { display: flex; flex-direction: column; gap: 12px; }
-    .iq-domain {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-    .iq-domain span {
-      font-size: 12px;
-      color: #9CA3AF;
-      white-space: nowrap;
-      min-width: 100px;
-      text-align: left;
-    }
-    .iq-bar {
-      flex: 1;
-      height: 6px;
-      background: rgba(255, 255, 255, 0.06);
-      border-radius: 3px;
-      overflow: hidden;
-    }
-    .iq-bar-fill {
-      height: 100%;
-      border-radius: 3px;
-      background: linear-gradient(90deg, #7C6AFF, #00D4FF);
-    }
-
-    /* ===== SUBJECTS ===== */
-    .subjects {
-      padding: 120px 0;
-      position: relative;
-    }
-    .subjects-header {
-      text-align: center;
-      margin-bottom: 64px;
-    }
-    .subjects-header h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(28px, 4vw, 44px);
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: -0.5px;
-      margin-bottom: 16px;
-    }
-    .subjects-header p {
-      font-size: 17px;
-      color: #9CA3AF;
-      max-width: 520px;
-      margin: 0 auto;
-    }
-    .subjects-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-    .subject-chip {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 16px;
-      padding: 24px 20px;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-    .subject-chip:hover {
-      background: rgba(255, 255, 255, 0.06);
-      border-color: rgba(124, 106, 255, 0.15);
-      transform: translateY(-3px);
-    }
-    .subject-emoji {
-      font-size: 32px;
-      margin-bottom: 12px;
-      display: block;
-    }
-    .subject-chip h4 {
-      font-size: 14px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 4px;
-    }
-    .subject-chip p {
-      font-size: 12px;
-      color: #6B7280;
-      line-height: 1.4;
-    }
-
-    /* ===== GAMIFICATION ===== */
-    .gamification {
-      padding: 120px 0;
-      position: relative;
-    }
-    .gamification::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(124, 106, 255, 0.15), transparent);
-    }
-    .gamification-header {
-      text-align: center;
-      margin-bottom: 64px;
-    }
-    .gamification-header h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(28px, 4vw, 44px);
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: -0.5px;
-      margin-bottom: 16px;
-    }
-    .gamification-header p {
-      font-size: 17px;
-      color: #9CA3AF;
-      max-width: 520px;
-      margin: 0 auto;
-    }
-    .gamification-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      margin-bottom: 48px;
-    }
-    .gam-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 20px;
-      padding: 28px 24px;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-    .gam-card:hover {
-      background: rgba(255, 255, 255, 0.05);
-      transform: translateY(-3px);
-    }
-    .gam-card-icon {
-      font-size: 32px;
-      margin-bottom: 16px;
-      display: block;
-    }
-    .gam-card h3 {
-      font-size: 16px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 8px;
-    }
-    .gam-card p {
-      font-size: 13px;
-      color: #6B7280;
-      line-height: 1.5;
-    }
-    .ranks-row {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .rank-chip {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 100px;
-      padding: 10px 20px;
-      font-size: 14px;
-      font-weight: 600;
-      color: #9CA3AF;
-      white-space: nowrap;
-    }
-    .rank-chip.active {
-      background: linear-gradient(135deg, rgba(124, 106, 255, 0.15), rgba(0, 212, 255, 0.1));
-      border-color: rgba(124, 106, 255, 0.3);
-      color: #fff;
-    }
-    .rank-arrow {
-      color: #374151;
-      font-size: 14px;
-    }
-
-    /* ===== PRICING ===== */
-    .pricing {
-      padding: 120px 0;
-      position: relative;
-    }
-    .pricing::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(124, 106, 255, 0.15), transparent);
-    }
-    .pricing-header {
-      text-align: center;
-      margin-bottom: 64px;
-    }
-    .pricing-header h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(28px, 4vw, 44px);
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: -0.5px;
-      margin-bottom: 16px;
-    }
-    .pricing-header p {
-      font-size: 17px;
-      color: #9CA3AF;
-      max-width: 520px;
-      margin: 0 auto;
-    }
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-    .pricing-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 24px;
-      padding: 36px 28px;
-      display: flex;
-      flex-direction: column;
-      transition: all 0.3s ease;
-    }
-    .pricing-card:hover {
-      transform: translateY(-4px);
-    }
-    .pricing-card.featured {
-      background: linear-gradient(135deg, rgba(124, 106, 255, 0.1), rgba(0, 212, 255, 0.05));
-      border-color: rgba(124, 106, 255, 0.25);
-      position: relative;
-    }
-    .pricing-badge {
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: linear-gradient(135deg, #7C6AFF, #5B4AE0);
-      color: #fff;
-      font-size: 11px;
-      font-weight: 700;
-      padding: 5px 16px;
-      border-radius: 100px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .pricing-tier {
-      font-size: 16px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 8px;
-    }
-    .pricing-price {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 40px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 4px;
-    }
-    .pricing-price span {
-      font-size: 16px;
-      font-weight: 500;
-      color: #6B7280;
-    }
-    .pricing-sub {
-      font-size: 13px;
-      color: #6B7280;
-      margin-bottom: 28px;
-    }
-    .pricing-list {
-      flex: 1;
-      margin-bottom: 28px;
-    }
-    .pricing-list li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 14px;
-      color: #9CA3AF;
-      padding: 8px 0;
-    }
-    .pricing-list li .check {
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: rgba(124, 106, 255, 0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .pricing-list li .check svg {
-      width: 10px;
-      height: 10px;
-    }
-    .btn-full { width: 100%; justify-content: center; }
-
-    /* ===== CTA ===== */
-    .cta {
-      padding: 120px 0;
-      text-align: center;
-      position: relative;
-    }
-    .cta::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 600px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(124, 106, 255, 0.1), transparent 70%);
-      border-radius: 50%;
-    }
-    .cta-content {
-      position: relative;
-      z-index: 1;
-    }
-    .cta h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(28px, 5vw, 48px);
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: -0.5px;
-      margin-bottom: 16px;
-    }
-    .cta p {
-      font-size: 17px;
-      color: #9CA3AF;
-      margin-bottom: 40px;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .cta-buttons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    /* ===== FOOTER ===== */
-    .footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      padding: 64px 0 32px;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 48px;
-      margin-bottom: 48px;
-    }
-    .footer-brand-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 12px;
-    }
-    .footer-brand-logo img {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-    }
-    .footer-brand-logo span {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      color: #fff;
-    }
-    .footer-brand p {
-      font-size: 14px;
-      color: #6B7280;
-      line-height: 1.6;
-      max-width: 280px;
-    }
-    .footer-col h4 {
-      font-size: 13px;
-      font-weight: 700;
-      color: #fff;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 20px;
-    }
-    .footer-col a {
-      display: block;
-      font-size: 14px;
-      color: #6B7280;
-      padding: 6px 0;
-      transition: color 0.2s;
-    }
-    .footer-col a:hover { color: #A99AFF; }
-    .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      padding-top: 24px;
-      text-align: center;
-      font-size: 13px;
-      color: #4B5563;
-    }
-
-    /* ===== ANIMATIONS ===== */
     .fade-up {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(24px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
     .fade-up.visible {
@@ -934,16 +61,348 @@
       transform: translateY(0);
     }
 
+    /* ===== NAVIGATION ===== */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 16px 0; transition: all 0.3s ease;
+    }
+    .nav.scrolled {
+      background: rgba(8, 9, 14, 0.85);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(124, 106, 255, 0.08);
+      padding: 12px 0;
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; color: #fff;
+    }
+    .nav-logo img { width: 36px; height: 36px; border-radius: 8px; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: #9CA3AF; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta {
+      background: linear-gradient(135deg, #7C6AFF, #5B4AE0); color: #fff !important;
+      padding: 10px 24px; border-radius: 100px; font-weight: 600 !important; font-size: 14px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(124, 106, 255, 0.3); }
+    .nav-menu {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .nav-menu span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: all 0.3s; }
+    .nav-menu.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-menu.open span:nth-child(2) { opacity: 0; }
+    .nav-menu.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-mobile {
+      display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(8, 9, 14, 0.97); backdrop-filter: blur(20px);
+      flex-direction: column; align-items: center; justify-content: center; gap: 32px; z-index: 999;
+    }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a { font-size: 24px; font-weight: 600; color: #E2E4EA; }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative; min-height: 100vh; display: flex; align-items: center;
+      justify-content: center; text-align: center; padding: 120px 24px 80px; overflow: hidden;
+    }
+    .hero-bg { position: absolute; inset: 0; z-index: 0; }
+    .hero-bg::before {
+      content: ''; position: absolute; top: -40%; left: 50%; transform: translateX(-50%);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(124, 106, 255, 0.15) 0%, rgba(0, 212, 255, 0.05) 40%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-bg::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 200px;
+      background: linear-gradient(to top, #08090E, transparent);
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(124, 106, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(124, 106, 255, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 800px; }
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(124, 106, 255, 0.1); border: 1px solid rgba(124, 106, 255, 0.2);
+      border-radius: 100px; padding: 8px 20px; font-size: 13px; font-weight: 600; color: #A99AFF; margin-bottom: 32px;
+    }
+    .hero-pill-dot { width: 6px; height: 6px; background: #7C6AFF; border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif; font-size: clamp(40px, 7vw, 72px);
+      font-weight: 700; line-height: 1.05; color: #fff; margin-bottom: 24px; letter-spacing: -1.5px;
+    }
+    .hero p { font-size: clamp(16px, 2vw, 19px); color: #9CA3AF; max-width: 560px; margin: 0 auto 40px; line-height: 1.7; }
+    .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 56px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px;
+      border-radius: 14px; font-size: 15px; font-weight: 600; transition: all 0.25s ease; cursor: pointer; border: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #7C6AFF, #5B4AE0); color: #fff;
+      box-shadow: 0 4px 20px rgba(124, 106, 255, 0.25);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(124, 106, 255, 0.4); }
+    .btn-glass {
+      background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #fff; backdrop-filter: blur(8px);
+    }
+    .btn-glass:hover { background: rgba(255, 255, 255, 0.1); transform: translateY(-2px); }
+    .btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+    .hero-stats { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; }
+    .hero-stat { text-align: center; }
+    .hero-stat-num { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 700; color: #fff; }
+    .hero-stat-text { font-size: 13px; color: #6B7280; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+
+    /* ===== FEATURES ===== */
+    .features { padding: 120px 0; position: relative; }
+    .features-header { text-align: center; margin-bottom: 64px; }
+    .features-header h2 {
+      font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700; color: #fff; letter-spacing: -0.5px; margin-bottom: 16px;
+    }
+    .features-header p { font-size: 17px; color: #9CA3AF; max-width: 520px; margin: 0 auto; }
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .feature-card {
+      background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 20px; padding: 32px; transition: all 0.3s ease; position: relative; overflow: hidden; cursor: pointer;
+    }
+    .feature-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(124, 106, 255, 0.3), transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .feature-card:hover { background: rgba(255, 255, 255, 0.05); border-color: rgba(124, 106, 255, 0.15); transform: translateY(-4px); }
+    .feature-card:hover::before { opacity: 1; }
+    .feature-card.feature-highlight { grid-column: span 2; }
+    .feature-icon {
+      width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center;
+      justify-content: center; margin-bottom: 20px;
+    }
+    .feature-card h3 { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .feature-card > p { font-size: 14px; color: #6B7280; line-height: 1.6; }
+    .feature-card .expand-hint {
+      display: flex; align-items: center; gap: 6px; font-size: 12px; color: #7C6AFF;
+      margin-top: 12px; font-weight: 600; transition: color 0.2s;
+    }
+    .feature-card .expand-hint svg { width: 14px; height: 14px; transition: transform 0.3s; }
+    .feature-card.expanded .expand-hint svg { transform: rotate(180deg); }
+    .feature-detail {
+      max-height: 0; overflow: hidden; transition: max-height 0.4s ease, margin-top 0.3s ease, opacity 0.3s ease;
+      opacity: 0; margin-top: 0;
+    }
+    .feature-card.expanded .feature-detail { max-height: 300px; opacity: 1; margin-top: 16px; }
+    .feature-detail-inner {
+      padding: 16px; background: rgba(124, 106, 255, 0.06); border-radius: 12px;
+      border: 1px solid rgba(124, 106, 255, 0.1);
+    }
+    .feature-detail-inner p { font-size: 13px; color: #9CA3AF; line-height: 1.7; margin-bottom: 8px; }
+    .feature-detail-inner p:last-child { margin-bottom: 0; }
+    .feature-detail-inner strong { color: #E2E4EA; }
+
+    /* ===== SUBJECTS ===== */
+    .subjects { padding: 120px 0; position: relative; }
+    .subjects::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(124, 106, 255, 0.15), transparent);
+    }
+    .subjects-header { text-align: center; margin-bottom: 64px; }
+    .subjects-header h2 {
+      font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700; color: #fff; letter-spacing: -0.5px; margin-bottom: 16px;
+    }
+    .subjects-header p { font-size: 17px; color: #9CA3AF; max-width: 520px; margin: 0 auto; }
+    .subjects-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .subject-chip {
+      background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px; padding: 24px 20px; text-align: center; transition: all 0.3s ease; cursor: pointer;
+    }
+    .subject-chip:hover { background: rgba(255, 255, 255, 0.06); border-color: rgba(124, 106, 255, 0.15); transform: translateY(-3px); }
+    .subject-emoji { font-size: 32px; margin-bottom: 12px; display: block; }
+    .subject-chip h4 { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .subject-chip > p { font-size: 12px; color: #6B7280; line-height: 1.4; }
+    .subject-chip .expand-arrow {
+      display: inline-block; font-size: 10px; color: #7C6AFF; margin-top: 8px;
+      transition: transform 0.3s;
+    }
+    .subject-chip.expanded .expand-arrow { transform: rotate(180deg); }
+    .subject-detail {
+      max-height: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease;
+      opacity: 0; margin-top: 0; text-align: left;
+    }
+    .subject-chip.expanded .subject-detail { max-height: 250px; opacity: 1; margin-top: 12px; }
+    .subject-detail-inner {
+      padding: 12px; background: rgba(124, 106, 255, 0.06); border-radius: 10px;
+      border: 1px solid rgba(124, 106, 255, 0.1);
+    }
+    .subject-detail-inner p { font-size: 12px; color: #9CA3AF; line-height: 1.6; margin: 0; }
+
+    /* ===== IQ TEST (compact) ===== */
+    .iq-section { padding: 80px 0; position: relative; }
+    .iq-section::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(124, 106, 255, 0.15), transparent);
+    }
+    .iq-compact { text-align: center; max-width: 800px; margin: 0 auto; }
+    .iq-compact h2 {
+      font-family: 'Space Grotesk', sans-serif; font-size: clamp(24px, 3.5vw, 36px);
+      font-weight: 700; color: #fff; letter-spacing: -0.5px; margin-bottom: 12px;
+    }
+    .iq-compact > p { font-size: 16px; color: #9CA3AF; max-width: 520px; margin: 0 auto 32px; }
+    .iq-highlights {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px;
+    }
+    .iq-highlight-card {
+      background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px; padding: 20px 16px; text-align: center; cursor: pointer; transition: all 0.3s ease;
+    }
+    .iq-highlight-card:hover { background: rgba(255, 255, 255, 0.06); border-color: rgba(124, 106, 255, 0.15); transform: translateY(-2px); }
+    .iq-highlight-card .iq-h-icon { font-size: 24px; margin-bottom: 8px; display: block; }
+    .iq-highlight-card h4 { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .iq-highlight-card > p { font-size: 11px; color: #6B7280; line-height: 1.4; }
+    .iq-highlight-card .expand-arrow {
+      display: inline-block; font-size: 10px; color: #7C6AFF; margin-top: 6px; transition: transform 0.3s;
+    }
+    .iq-highlight-card.expanded .expand-arrow { transform: rotate(180deg); }
+    .iq-highlight-detail {
+      max-height: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease;
+      opacity: 0; margin-top: 0; text-align: left;
+    }
+    .iq-highlight-card.expanded .iq-highlight-detail { max-height: 200px; opacity: 1; margin-top: 10px; }
+    .iq-highlight-detail-inner {
+      padding: 10px; background: rgba(124, 106, 255, 0.06); border-radius: 8px;
+      border: 1px solid rgba(124, 106, 255, 0.1);
+    }
+    .iq-highlight-detail-inner p { font-size: 11px; color: #9CA3AF; line-height: 1.6; margin: 0; }
+
+    /* ===== GAMIFICATION ===== */
+    .gamification { padding: 120px 0; position: relative; }
+    .gamification::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(124, 106, 255, 0.15), transparent);
+    }
+    .gamification-header { text-align: center; margin-bottom: 64px; }
+    .gamification-header h2 {
+      font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700; color: #fff; letter-spacing: -0.5px; margin-bottom: 16px;
+    }
+    .gamification-header p { font-size: 17px; color: #9CA3AF; max-width: 520px; margin: 0 auto; }
+    .gamification-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 48px; }
+    .gam-card {
+      background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 20px; padding: 28px 24px; text-align: center; transition: all 0.3s ease; cursor: pointer;
+    }
+    .gam-card:hover { background: rgba(255, 255, 255, 0.05); transform: translateY(-3px); }
+    .gam-card-icon { font-size: 32px; margin-bottom: 16px; display: block; }
+    .gam-card h3 { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .gam-card > p { font-size: 13px; color: #6B7280; line-height: 1.5; }
+    .gam-card .expand-arrow {
+      display: inline-block; font-size: 10px; color: #7C6AFF; margin-top: 8px; transition: transform 0.3s;
+    }
+    .gam-card.expanded .expand-arrow { transform: rotate(180deg); }
+    .gam-detail {
+      max-height: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease;
+      opacity: 0; margin-top: 0; text-align: left;
+    }
+    .gam-card.expanded .gam-detail { max-height: 250px; opacity: 1; margin-top: 12px; }
+    .gam-detail-inner {
+      padding: 12px; background: rgba(124, 106, 255, 0.06); border-radius: 10px;
+      border: 1px solid rgba(124, 106, 255, 0.1);
+    }
+    .gam-detail-inner p { font-size: 12px; color: #9CA3AF; line-height: 1.6; margin: 0; }
+    .ranks-row { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .rank-chip {
+      background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 100px; padding: 10px 20px; font-size: 14px; font-weight: 600; color: #9CA3AF; white-space: nowrap;
+    }
+    .rank-chip.active {
+      background: linear-gradient(135deg, rgba(124, 106, 255, 0.15), rgba(0, 212, 255, 0.1));
+      border-color: rgba(124, 106, 255, 0.3); color: #fff;
+    }
+    .rank-arrow { color: #374151; font-size: 14px; }
+
+    /* ===== PRICING ===== */
+    .pricing { padding: 120px 0; position: relative; }
+    .pricing::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(124, 106, 255, 0.15), transparent);
+    }
+    .pricing-header { text-align: center; margin-bottom: 64px; }
+    .pricing-header h2 {
+      font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700; color: #fff; letter-spacing: -0.5px; margin-bottom: 16px;
+    }
+    .pricing-header p { font-size: 17px; color: #9CA3AF; max-width: 520px; margin: 0 auto; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 960px; margin: 0 auto; }
+    .pricing-card {
+      background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 24px; padding: 36px 28px; display: flex; flex-direction: column; transition: all 0.3s ease;
+    }
+    .pricing-card:hover { transform: translateY(-4px); }
+    .pricing-card.featured {
+      background: linear-gradient(135deg, rgba(124, 106, 255, 0.1), rgba(0, 212, 255, 0.05));
+      border-color: rgba(124, 106, 255, 0.25); position: relative;
+    }
+    .pricing-badge {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: linear-gradient(135deg, #7C6AFF, #5B4AE0); color: #fff;
+      font-size: 11px; font-weight: 700; padding: 5px 16px; border-radius: 100px;
+      text-transform: uppercase; letter-spacing: 1px;
+    }
+    .pricing-tier { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .pricing-price { font-family: 'Space Grotesk', sans-serif; font-size: 40px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .pricing-price span { font-size: 16px; font-weight: 500; color: #6B7280; }
+    .pricing-sub { font-size: 13px; color: #6B7280; margin-bottom: 28px; }
+    .pricing-list { flex: 1; margin-bottom: 28px; }
+    .pricing-list li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #9CA3AF; padding: 8px 0; }
+    .pricing-list li .check {
+      width: 18px; height: 18px; border-radius: 50%; background: rgba(124, 106, 255, 0.15);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .pricing-list li .check svg { width: 10px; height: 10px; }
+    .btn-full { width: 100%; justify-content: center; }
+
+    /* ===== CTA ===== */
+    .cta { padding: 120px 0; text-align: center; position: relative; }
+    .cta::before {
+      content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 600px; height: 400px; background: radial-gradient(circle, rgba(124, 106, 255, 0.1), transparent 70%); border-radius: 50%;
+    }
+    .cta-content { position: relative; z-index: 1; }
+    .cta h2 {
+      font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 5vw, 48px);
+      font-weight: 700; color: #fff; letter-spacing: -0.5px; margin-bottom: 16px;
+    }
+    .cta p { font-size: 17px; color: #9CA3AF; margin-bottom: 40px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ===== FOOTER ===== */
+    .footer { border-top: 1px solid rgba(255, 255, 255, 0.06); padding: 64px 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .footer-brand-logo img { width: 32px; height: 32px; border-radius: 8px; }
+    .footer-brand-logo span { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; color: #fff; }
+    .footer-brand p { font-size: 14px; color: #6B7280; line-height: 1.6; max-width: 280px; }
+    .footer-col h4 { font-size: 13px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+    .footer-col a { display: block; font-size: 14px; color: #6B7280; padding: 6px 0; transition: color 0.2s; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { text-align: center; font-size: 13px; color: #374151; border-top: 1px solid rgba(255, 255, 255, 0.04); padding-top: 24px; }
+
     /* ===== RESPONSIVE ===== */
     @media (max-width: 1024px) {
       .features-grid { grid-template-columns: repeat(2, 1fr); }
-      .feature-highlight { grid-column: span 2; }
-      .iq-layout { grid-template-columns: 1fr; gap: 48px; }
-      .iq-content { text-align: center; }
-      .iq-content > p { text-align: center; }
-      .iq-features { align-items: center; }
-      .iq-feat { max-width: 400px; }
+      .feature-card.feature-highlight { grid-column: span 1; }
       .subjects-grid { grid-template-columns: repeat(3, 1fr); }
+      .iq-highlights { grid-template-columns: repeat(2, 1fr); }
       .gamification-grid { grid-template-columns: repeat(2, 1fr); }
       .pricing-grid { grid-template-columns: 1fr; max-width: 400px; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -951,55 +410,39 @@
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .nav-menu { display: flex; }
-      .hero { padding: 100px 20px 60px; min-height: auto; }
-      .hero h1 { font-size: 36px; letter-spacing: -1px; }
-      .hero p { font-size: 16px; }
-      .hero-buttons { flex-direction: column; align-items: center; }
-      .btn { width: 100%; max-width: 300px; justify-content: center; }
-      .hero-stats { gap: 32px; }
-      .hero-stat-num { font-size: 28px; }
-      .features, .iq-section, .subjects, .gamification, .pricing, .cta { padding: 80px 0; }
       .features-grid { grid-template-columns: 1fr; }
-      .feature-highlight { grid-column: span 1; }
       .subjects-grid { grid-template-columns: repeat(2, 1fr); }
-      .gamification-grid { grid-template-columns: 1fr; }
-      .ranks-row { gap: 8px; }
-      .rank-chip { font-size: 12px; padding: 8px 14px; }
-      .rank-arrow { display: none; }
+      .iq-highlights { grid-template-columns: 1fr 1fr; }
+      .gamification-grid { grid-template-columns: 1fr 1fr; }
+      .hero-stats { gap: 32px; }
       .footer-grid { grid-template-columns: 1fr; gap: 32px; }
     }
     @media (max-width: 480px) {
-      .hero h1 { font-size: 32px; }
-      .subjects-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-      .subject-chip { padding: 20px 16px; }
-      .iq-card { width: 100%; max-width: 300px; }
+      .subjects-grid { grid-template-columns: repeat(2, 1fr); }
+      .iq-highlights { grid-template-columns: 1fr 1fr; }
+      .gamification-grid { grid-template-columns: 1fr; }
+      .hero-buttons { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
 <body>
-
-  <!-- Navigation -->
+  <!-- Nav -->
   <nav class="nav" id="navbar">
     <div class="nav-inner">
-      <a href="/" class="nav-logo">
-        <img src="logo.png" alt="Big Brain">
-        <span>Big Brain</span>
-      </a>
+      <a href="#" class="nav-logo"><img src="logo.png" alt="Big Brain">Big Brain</a>
       <div class="nav-links">
         <a href="#features">Features</a>
-        <a href="#iq-test">IQ Test</a>
         <a href="#subjects">Subjects</a>
+        <a href="#iq-test">IQ Test</a>
         <a href="#pricing">Pricing</a>
         <a href="#download" class="nav-cta">Download</a>
       </div>
-      <button class="nav-menu" id="navMenu" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-menu" id="navMenu"><span></span><span></span><span></span></button>
     </div>
     <div class="nav-mobile" id="navMobile">
       <a href="#features">Features</a>
-      <a href="#iq-test">IQ Test</a>
       <a href="#subjects">Subjects</a>
+      <a href="#iq-test">IQ Test</a>
       <a href="#pricing">Pricing</a>
       <a href="#download">Download</a>
     </div>
@@ -1010,35 +453,23 @@
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
     <div class="hero-content">
-      <div class="hero-pill">
-        <span class="hero-pill-dot"></span>
-        AI-Powered Study Companion
-      </div>
+      <div class="hero-pill"><span class="hero-pill-dot"></span>AI-Powered Study Companion</div>
       <h1>Study Smarter<br>with <span class="gradient-text">Big Brain</span></h1>
-      <p>The all-in-one study app with AI tutoring, IQ tests, practice quizzes, flashcards, voice notes, and 12 subjects. Everything you need to ace your classes.</p>
+      <p>The all-in-one study app with AI tutoring, practice quizzes, flashcards, voice notes, and 12 subjects. Everything you need to ace your classes.</p>
       <div class="hero-buttons">
         <a href="#download" class="btn btn-primary">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          App Store — Coming Soon
+          App Store &mdash; Coming Soon
         </a>
         <a href="#download" class="btn btn-glass">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.807 1.626a1 1 0 010 1.732l-2.807 1.626L15.206 12l2.492-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
-          Google Play — Coming Soon
+          Google Play &mdash; Coming Soon
         </a>
       </div>
       <div class="hero-stats">
-        <div class="hero-stat">
-          <span class="hero-stat-num">12</span>
-          <span class="hero-stat-text">Subjects</span>
-        </div>
-        <div class="hero-stat">
-          <span class="hero-stat-num">90+</span>
-          <span class="hero-stat-text">IQ Questions</span>
-        </div>
-        <div class="hero-stat">
-          <span class="hero-stat-num">40+</span>
-          <span class="hero-stat-text">Achievements</span>
-        </div>
+        <div class="hero-stat"><span class="hero-stat-num">12</span><span class="hero-stat-text">Subjects</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">8</span><span class="hero-stat-text">AI Tools</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">40+</span><span class="hero-stat-text">Achievements</span></div>
       </div>
     </div>
   </section>
@@ -1052,127 +483,91 @@
         <p>Powerful AI tools, gamification, and study utilities packed into one beautiful app.</p>
       </div>
       <div class="features-grid">
-        <div class="feature-card feature-highlight fade-up">
-          <div class="feature-icon" style="background: linear-gradient(135deg, #7C6AFF, #00D4FF);">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-          </div>
+        <div class="feature-card feature-highlight fade-up" onclick="this.classList.toggle('expanded')">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #7C6AFF, #00D4FF);"><svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></div>
           <h3>AI Tutor</h3>
-          <p>Ask any question on any subject and get instant, detailed explanations from your personal AI tutor. Like having a genius friend available 24/7.</p>
+          <p>Ask any question on any subject and get instant, detailed explanations from your personal AI tutor.</p>
+          <div class="expand-hint">Tap to learn more <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+          <div class="feature-detail"><div class="feature-detail-inner">
+            <p><strong>Your 24/7 genius friend.</strong> The AI Tutor understands context across all 12 subjects. Ask follow-up questions, request simpler explanations, or dive deeper into any topic. It adapts to your learning style and provides step-by-step breakdowns for complex problems.</p>
+            <p>Works with text, images, and even voice input. Get help with homework, exam prep, or just satisfy your curiosity.</p>
+          </div></div>
         </div>
-        <div class="feature-card fade-up">
-          <div class="feature-icon" style="background: linear-gradient(135deg, #E17055, #FDCB6E);">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-          </div>
+        <div class="feature-card fade-up" onclick="this.classList.toggle('expanded')">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #E17055, #FDCB6E);"><svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></div>
           <h3>AI Quizzes</h3>
-          <p>Generate quizzes on any topic with AI. Choose difficulty and get instant feedback with detailed explanations.</p>
+          <p>Generate quizzes on any topic with AI. Choose difficulty and get instant feedback.</p>
+          <div class="expand-hint">Tap to learn more <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+          <div class="feature-detail"><div class="feature-detail-inner">
+            <p><strong>Unlimited practice, zero effort.</strong> Just type a topic and difficulty level, and AI generates a complete quiz with multiple-choice questions. Get detailed explanations for every answer, right or wrong.</p>
+            <p>Track your quiz history and see which topics need more work. Perfect for exam preparation.</p>
+          </div></div>
         </div>
-        <div class="feature-card fade-up">
-          <div class="feature-icon" style="background: linear-gradient(135deg, #00B894, #55EFC4);">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-          </div>
+        <div class="feature-card fade-up" onclick="this.classList.toggle('expanded')">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #00B894, #55EFC4);"><svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg></div>
           <h3>Notes to Podcast</h3>
           <p>Convert your study notes into audio podcasts. Listen and learn on the go.</p>
+          <div class="expand-hint">Tap to learn more <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+          <div class="feature-detail"><div class="feature-detail-inner">
+            <p><strong>Turn reading into listening.</strong> Paste or type your notes and AI converts them into a natural-sounding podcast. Great for auditory learners or reviewing material during commutes.</p>
+            <p>The AI structures content into an engaging format with key takeaways highlighted.</p>
+          </div></div>
         </div>
-        <div class="feature-card fade-up">
-          <div class="feature-icon" style="background: linear-gradient(135deg, #E84393, #FD79A8);">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-          </div>
+        <div class="feature-card fade-up" onclick="this.classList.toggle('expanded')">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #E84393, #FD79A8);"><svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg></div>
           <h3>Flashcards</h3>
           <p>Create and study flashcard decks. AI generates them from any topic instantly.</p>
+          <div class="expand-hint">Tap to learn more <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+          <div class="feature-detail"><div class="feature-detail-inner">
+            <p><strong>Smart flashcards, zero busywork.</strong> Type a topic and AI creates a complete flashcard deck. Or create your own manually. Swipe through cards to study, flip to reveal answers.</p>
+            <p>Organize decks by subject, star important cards, and track your mastery progress.</p>
+          </div></div>
         </div>
-        <div class="feature-card fade-up">
-          <div class="feature-icon" style="background: linear-gradient(135deg, #0984E3, #74B9FF);">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3zm5 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-2.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
-          </div>
+        <div class="feature-card fade-up" onclick="this.classList.toggle('expanded')">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #0984E3, #74B9FF);"><svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3zm5 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-2.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg></div>
           <h3>Voice Recording</h3>
-          <p>Record lectures. AI transcribes audio and generates structured study notes automatically.</p>
+          <p>Record lectures. AI transcribes audio and generates structured study notes.</p>
+          <div class="expand-hint">Tap to learn more <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+          <div class="feature-detail"><div class="feature-detail-inner">
+            <p><strong>Never miss a word.</strong> Hit record during any lecture or study session. AI transcribes the audio and automatically generates organized, structured study notes with key points highlighted.</p>
+            <p>Save recordings, review transcripts, and export notes for later study.</p>
+          </div></div>
         </div>
-        <div class="feature-card feature-highlight fade-up">
-          <div class="feature-icon" style="background: linear-gradient(135deg, #3B82F6, #93C5FD);">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-          </div>
+        <div class="feature-card feature-highlight fade-up" onclick="this.classList.toggle('expanded')">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #3B82F6, #93C5FD);"><svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></div>
           <h3>Doc Analyzer</h3>
-          <p>Drop in any text document and let AI analyze it. Get summaries, key points, and insights in seconds. Perfect for research papers and textbook chapters.</p>
+          <p>Drop in any text document and let AI analyze it. Get summaries, key points, and insights in seconds.</p>
+          <div class="expand-hint">Tap to learn more <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+          <div class="feature-detail"><div class="feature-detail-inner">
+            <p><strong>Read smarter, not harder.</strong> Paste any text &mdash; research papers, textbook chapters, articles &mdash; and AI breaks it down into a concise summary with key points, important terms, and actionable insights.</p>
+            <p>Perfect for quickly understanding dense material before exams or writing assignments.</p>
+          </div></div>
         </div>
-        <div class="feature-card fade-up">
-          <div class="feature-icon" style="background: linear-gradient(135deg, #FDCB6E, #F39C12);">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-          </div>
+        <div class="feature-card fade-up" onclick="this.classList.toggle('expanded')">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #FDCB6E, #F39C12);"><svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg></div>
           <h3>Focus Timer</h3>
           <p>Pomodoro technique built in. Track study time and build consistency.</p>
+          <div class="expand-hint">Tap to learn more <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+          <div class="feature-detail"><div class="feature-detail-inner">
+            <p><strong>Stay in the zone.</strong> Customizable Pomodoro timer with work and break intervals. Tracks your total study time and helps you build consistent study habits.</p>
+            <p>Earn XP for completed focus sessions. Your study time is logged and visible in your stats.</p>
+          </div></div>
         </div>
-        <div class="feature-card fade-up">
-          <div class="feature-icon" style="background: linear-gradient(135deg, #636E72, #B2BEC3);">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-          </div>
+        <div class="feature-card fade-up" onclick="this.classList.toggle('expanded')">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #636E72, #B2BEC3);"><svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg></div>
           <h3>Study Planner</h3>
           <p>Plan your study sessions and daily goals. Stay organized and on track.</p>
+          <div class="expand-hint">Tap to learn more <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+          <div class="feature-detail"><div class="feature-detail-inner">
+            <p><strong>Plan your path to success.</strong> Create daily study plans with specific goals and time blocks. Set reminders for upcoming tests and track your completion rate.</p>
+            <p>The planner integrates with your subjects so you can balance your study time across all classes.</p>
+          </div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- IQ Test -->
-  <section class="iq-section" id="iq-test">
-    <div class="container">
-      <div class="iq-layout">
-        <div class="iq-content">
-          <div class="section-label">IQ Test</div>
-          <h2>See How Big Your <span class="gradient-text">Brain</span> Really Is</h2>
-          <p>Take a real, standardized IQ test modeled after official tests like WAIS and Raven's Progressive Matrices. No gimmicks, just science.</p>
-          <div class="iq-features">
-            <div class="iq-feat fade-up">
-              <div class="iq-feat-icon">&#129504;</div>
-              <div>
-                <h4>5 Cognitive Domains</h4>
-                <p>Pattern Recognition, Number Sequences, Verbal Reasoning, Spatial Reasoning, Logical Reasoning</p>
-              </div>
-            </div>
-            <div class="iq-feat fade-up">
-              <div class="iq-feat-icon">&#128202;</div>
-              <div>
-                <h4>Real Scoring</h4>
-                <p>Standard normal distribution (mean 100, SD 15) with percentile ranks and IQ classifications</p>
-              </div>
-            </div>
-            <div class="iq-feat fade-up">
-              <div class="iq-feat-icon">&#128260;</div>
-              <div>
-                <h4>90 Questions, 30 Per Test</h4>
-                <p>Each test randomly selects 30 questions so every retake feels completely different</p>
-              </div>
-            </div>
-            <div class="iq-feat fade-up">
-              <div class="iq-feat-icon">&#9201;</div>
-              <div>
-                <h4>No Time Pressure</h4>
-                <p>Take as long as you need. Time is tracked and factored into your score</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="iq-visual">
-          <div class="iq-card fade-up">
-            <div class="iq-card-label">Your IQ Score</div>
-            <div class="iq-score-ring">
-              <span class="iq-score-num">128</span>
-            </div>
-            <div class="iq-class">Superior</div>
-            <div class="iq-percentile">97th Percentile</div>
-            <div class="iq-domains">
-              <div class="iq-domain"><span>Pattern</span><div class="iq-bar"><div class="iq-bar-fill" style="width:90%"></div></div></div>
-              <div class="iq-domain"><span>Numbers</span><div class="iq-bar"><div class="iq-bar-fill" style="width:75%"></div></div></div>
-              <div class="iq-domain"><span>Verbal</span><div class="iq-bar"><div class="iq-bar-fill" style="width:85%"></div></div></div>
-              <div class="iq-domain"><span>Spatial</span><div class="iq-bar"><div class="iq-bar-fill" style="width:80%"></div></div></div>
-              <div class="iq-domain"><span>Logic</span><div class="iq-bar"><div class="iq-bar-fill" style="width:95%"></div></div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Subjects -->
+  <!-- Subjects (BEFORE IQ Test) -->
   <section class="subjects" id="subjects">
     <div class="container">
       <div class="subjects-header">
@@ -1181,18 +576,107 @@
         <p>Each subject comes with its own set of AI-powered tools designed specifically for that field.</p>
       </div>
       <div class="subjects-grid">
-        <div class="subject-chip fade-up"><span class="subject-emoji">&#128208;</span><h4>Mathematics</h4><p>Calculator, Graphing, Formulas</p></div>
-        <div class="subject-chip fade-up"><span class="subject-emoji">&#128300;</span><h4>Science</h4><p>Periodic Table, Unit Converter</p></div>
-        <div class="subject-chip fade-up"><span class="subject-emoji">&#128214;</span><h4>English</h4><p>Writing, Vocabulary, Grammar</p></div>
-        <div class="subject-chip fade-up"><span class="subject-emoji">&#127963;</span><h4>History</h4><p>Timelines, Key Dates, Figures</p></div>
-        <div class="subject-chip fade-up"><span class="subject-emoji">&#127757;</span><h4>Geography</h4><p>Maps, Country Facts, Climate</p></div>
-        <div class="subject-chip fade-up"><span class="subject-emoji">&#128187;</span><h4>Computer Science</h4><p>Algorithms, Concepts, Glossary</p></div>
-        <div class="subject-chip fade-up"><span class="subject-emoji">&#127912;</span><h4>Art & Design</h4><p>Color Theory, Movements</p></div>
-        <div class="subject-chip fade-up"><span class="subject-emoji">&#128200;</span><h4>Economics</h4><p>Key Terms, Graphs, Formulas</p></div>
-        <div class="subject-chip fade-up"><span class="subject-emoji">&#127466;&#127480;</span><h4>Spanish</h4><p>Vocabulary, Conjugation</p></div>
-        <div class="subject-chip fade-up"><span class="subject-emoji">&#127467;&#127479;</span><h4>French</h4><p>Vocabulary, Conjugation</p></div>
-        <div class="subject-chip fade-up"><span class="subject-emoji">&#127464;&#127475;</span><h4>Mandarin</h4><p>Characters, Pinyin Guide</p></div>
-        <div class="subject-chip fade-up"><span class="subject-emoji">&#127465;&#127466;</span><h4>German</h4><p>Vocabulary, Conjugation</p></div>
+        <div class="subject-chip fade-up" onclick="this.classList.toggle('expanded')">
+          <span class="subject-emoji">&#128208;</span><h4>Mathematics</h4><p>Calculator, Graphing, Formulas</p>
+          <span class="expand-arrow">&#9660;</span>
+          <div class="subject-detail"><div class="subject-detail-inner"><p>Built-in scientific calculator, interactive graphing tool for visualizing equations, and a comprehensive formula reference sheet covering algebra, geometry, trigonometry, and calculus.</p></div></div>
+        </div>
+        <div class="subject-chip fade-up" onclick="this.classList.toggle('expanded')">
+          <span class="subject-emoji">&#128300;</span><h4>Science</h4><p>Periodic Table, Unit Converter</p>
+          <span class="expand-arrow">&#9660;</span>
+          <div class="subject-detail"><div class="subject-detail-inner"><p>Interactive periodic table with detailed element info, a unit converter for physics and chemistry calculations, and quick-reference cards for key scientific concepts and laws.</p></div></div>
+        </div>
+        <div class="subject-chip fade-up" onclick="this.classList.toggle('expanded')">
+          <span class="subject-emoji">&#128214;</span><h4>English</h4><p>Writing, Vocabulary, Grammar</p>
+          <span class="expand-arrow">&#9660;</span>
+          <div class="subject-detail"><div class="subject-detail-inner"><p>AI writing assistant for essays and reports, vocabulary builder with definitions and examples, and grammar reference guide with rules and common mistakes to avoid.</p></div></div>
+        </div>
+        <div class="subject-chip fade-up" onclick="this.classList.toggle('expanded')">
+          <span class="subject-emoji">&#127963;</span><h4>History</h4><p>Timelines, Key Dates, Figures</p>
+          <span class="expand-arrow">&#9660;</span>
+          <div class="subject-detail"><div class="subject-detail-inner"><p>Interactive timelines for major historical periods, quick-reference cards for key dates and events, and profiles of important historical figures with their contributions.</p></div></div>
+        </div>
+        <div class="subject-chip fade-up" onclick="this.classList.toggle('expanded')">
+          <span class="subject-emoji">&#127757;</span><h4>Geography</h4><p>Maps, Country Facts, Climate</p>
+          <span class="expand-arrow">&#9660;</span>
+          <div class="subject-detail"><div class="subject-detail-inner"><p>Country fact sheets with population, capital, and key stats. Climate zone references and geographical feature guides for studying physical and human geography.</p></div></div>
+        </div>
+        <div class="subject-chip fade-up" onclick="this.classList.toggle('expanded')">
+          <span class="subject-emoji">&#128187;</span><h4>Computer Science</h4><p>Algorithms, Concepts, Glossary</p>
+          <span class="expand-arrow">&#9660;</span>
+          <div class="subject-detail"><div class="subject-detail-inner"><p>Algorithm visualizations, core CS concept explanations (data structures, OOP, networking), and a comprehensive glossary of programming and computer science terms.</p></div></div>
+        </div>
+        <div class="subject-chip fade-up" onclick="this.classList.toggle('expanded')">
+          <span class="subject-emoji">&#127912;</span><h4>Art &amp; Design</h4><p>Color Theory, Movements</p>
+          <span class="expand-arrow">&#9660;</span>
+          <div class="subject-detail"><div class="subject-detail-inner"><p>Color theory reference with color wheels and palettes, art movement timelines from Renaissance to Contemporary, and key artist profiles with their signature styles.</p></div></div>
+        </div>
+        <div class="subject-chip fade-up" onclick="this.classList.toggle('expanded')">
+          <span class="subject-emoji">&#128200;</span><h4>Economics</h4><p>Key Terms, Graphs, Formulas</p>
+          <span class="expand-arrow">&#9660;</span>
+          <div class="subject-detail"><div class="subject-detail-inner"><p>Essential economics terminology, supply/demand graph references, and key formulas for micro and macroeconomics including GDP, inflation, and market equilibrium calculations.</p></div></div>
+        </div>
+        <div class="subject-chip fade-up" onclick="this.classList.toggle('expanded')">
+          <span class="subject-emoji">&#127466;&#127480;</span><h4>Spanish</h4><p>Vocabulary, Conjugation</p>
+          <span class="expand-arrow">&#9660;</span>
+          <div class="subject-detail"><div class="subject-detail-inner"><p>Vocabulary lists organized by topic, verb conjugation tables for all tenses, and common phrases for everyday conversation practice.</p></div></div>
+        </div>
+        <div class="subject-chip fade-up" onclick="this.classList.toggle('expanded')">
+          <span class="subject-emoji">&#127467;&#127479;</span><h4>French</h4><p>Vocabulary, Conjugation</p>
+          <span class="expand-arrow">&#9660;</span>
+          <div class="subject-detail"><div class="subject-detail-inner"><p>French vocabulary organized by theme, complete verb conjugation charts, pronunciation guides, and useful everyday expressions.</p></div></div>
+        </div>
+        <div class="subject-chip fade-up" onclick="this.classList.toggle('expanded')">
+          <span class="subject-emoji">&#127464;&#127475;</span><h4>Mandarin</h4><p>Characters, Pinyin Guide</p>
+          <span class="expand-arrow">&#9660;</span>
+          <div class="subject-detail"><div class="subject-detail-inner"><p>Character stroke order guides, pinyin pronunciation reference, tone practice tools, and essential vocabulary lists for HSK levels.</p></div></div>
+        </div>
+        <div class="subject-chip fade-up" onclick="this.classList.toggle('expanded')">
+          <span class="subject-emoji">&#127465;&#127466;</span><h4>German</h4><p>Vocabulary, Conjugation</p>
+          <span class="expand-arrow">&#9660;</span>
+          <div class="subject-detail"><div class="subject-detail-inner"><p>German vocabulary by topic, verb conjugation tables, noun gender guides, and case system reference charts for mastering German grammar.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IQ Test (compact, AFTER Subjects) -->
+  <section class="iq-section" id="iq-test">
+    <div class="container">
+      <div class="iq-compact">
+        <div class="section-label">Bonus Feature</div>
+        <h2>Take a Real <span class="gradient-text">IQ Test</span></h2>
+        <p>Modeled after official standardized tests like WAIS and Raven's Progressive Matrices. 90 questions across 5 cognitive domains.</p>
+        <div class="iq-highlights">
+          <div class="iq-highlight-card fade-up" onclick="this.classList.toggle('expanded')">
+            <span class="iq-h-icon">&#129504;</span>
+            <h4>5 Domains</h4>
+            <p>Pattern, Numbers, Verbal, Spatial, Logic</p>
+            <span class="expand-arrow">&#9660;</span>
+            <div class="iq-highlight-detail"><div class="iq-highlight-detail-inner"><p>Each domain tests a different aspect of cognitive ability: Pattern Recognition, Number Sequences, Verbal Reasoning, Spatial Reasoning, and Logical Reasoning. Your score is broken down by domain so you can see your strengths.</p></div></div>
+          </div>
+          <div class="iq-highlight-card fade-up" onclick="this.classList.toggle('expanded')">
+            <span class="iq-h-icon">&#128202;</span>
+            <h4>Real Scoring</h4>
+            <p>Mean 100, SD 15, percentile ranks</p>
+            <span class="expand-arrow">&#9660;</span>
+            <div class="iq-highlight-detail"><div class="iq-highlight-detail-inner"><p>Uses the standard normal distribution (mean 100, standard deviation 15) just like official IQ tests. Get your percentile rank and IQ classification (Average, Above Average, Superior, etc.).</p></div></div>
+          </div>
+          <div class="iq-highlight-card fade-up" onclick="this.classList.toggle('expanded')">
+            <span class="iq-h-icon">&#128260;</span>
+            <h4>30 Per Test</h4>
+            <p>Randomly selected from 90 questions</p>
+            <span class="expand-arrow">&#9660;</span>
+            <div class="iq-highlight-detail"><div class="iq-highlight-detail-inner"><p>Each test randomly selects 30 questions from a pool of 90, so every retake feels completely different. No memorizing answers &mdash; it's a fresh challenge every time.</p></div></div>
+          </div>
+          <div class="iq-highlight-card fade-up" onclick="this.classList.toggle('expanded')">
+            <span class="iq-h-icon">&#9201;</span>
+            <h4>No Time Limit</h4>
+            <p>Take as long as you need</p>
+            <span class="expand-arrow">&#9660;</span>
+            <div class="iq-highlight-detail"><div class="iq-highlight-detail-inner"><p>There's no countdown timer pressuring you. Take as long as you need on each question. Time is tracked and factored into your final score, but you won't be cut off.</p></div></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1206,38 +690,41 @@
         <p>Earn XP, unlock achievements, climb ranks, and maintain streaks. Learning has never been this rewarding.</p>
       </div>
       <div class="gamification-grid">
-        <div class="gam-card fade-up">
+        <div class="gam-card fade-up" onclick="this.classList.toggle('expanded')">
           <span class="gam-card-icon">&#9889;</span>
           <h3>XP &amp; Leveling</h3>
           <p>Earn XP for everything you do. Level up and watch your progress grow.</p>
+          <span class="expand-arrow">&#9660;</span>
+          <div class="gam-detail"><div class="gam-detail-inner"><p>Every action earns XP: completing quizzes, studying flashcards, using the focus timer, asking the AI tutor, and more. As you level up, you unlock new ranks and display titles. Your level is visible on your profile.</p></div></div>
         </div>
-        <div class="gam-card fade-up">
+        <div class="gam-card fade-up" onclick="this.classList.toggle('expanded')">
           <span class="gam-card-icon">&#128293;</span>
           <h3>Daily Streaks</h3>
           <p>Keep your streak alive by studying every day. Track current and best streaks.</p>
+          <span class="expand-arrow">&#9660;</span>
+          <div class="gam-detail"><div class="gam-detail-inner"><p>Open the app and do any study activity to maintain your streak. Track your current streak and all-time best. Streaks unlock special achievements and bonus XP multipliers.</p></div></div>
         </div>
-        <div class="gam-card fade-up">
+        <div class="gam-card fade-up" onclick="this.classList.toggle('expanded')">
           <span class="gam-card-icon">&#127942;</span>
           <h3>40+ Achievements</h3>
           <p>Unlock achievements across 6 categories: Streaks, Quizzes, Notes, and more.</p>
+          <span class="expand-arrow">&#9660;</span>
+          <div class="gam-detail"><div class="gam-detail-inner"><p>Over 40 achievements across categories like Study Streaks, Quiz Master, Note Taker, AI Explorer, Focus Champion, and Level Up. Each achievement awards bonus XP and a collectible badge.</p></div></div>
         </div>
-        <div class="gam-card fade-up">
+        <div class="gam-card fade-up" onclick="this.classList.toggle('expanded')">
           <span class="gam-card-icon">&#128081;</span>
           <h3>Ranks &amp; Titles</h3>
           <p>Climb from Newbie to Big Brain. Unlock display titles like "Galaxy Brain."</p>
+          <span class="expand-arrow">&#9660;</span>
+          <div class="gam-detail"><div class="gam-detail-inner"><p>Progress through 6 ranks as you level up: Newbie, Bookworm, Brainiac, Mastermind, Genius, and Big Brain. Each rank unlocks unique display titles you can show on your profile.</p></div></div>
         </div>
       </div>
       <div class="ranks-row">
-        <span class="rank-chip">&#127793; Newbie</span>
-        <span class="rank-arrow">&rarr;</span>
-        <span class="rank-chip">&#128218; Bookworm</span>
-        <span class="rank-arrow">&rarr;</span>
-        <span class="rank-chip">&#129514; Brainiac</span>
-        <span class="rank-arrow">&rarr;</span>
-        <span class="rank-chip">&#129504; Mastermind</span>
-        <span class="rank-arrow">&rarr;</span>
-        <span class="rank-chip">&#128142; Genius</span>
-        <span class="rank-arrow">&rarr;</span>
+        <span class="rank-chip">&#127793; Newbie</span><span class="rank-arrow">&rarr;</span>
+        <span class="rank-chip">&#128218; Bookworm</span><span class="rank-arrow">&rarr;</span>
+        <span class="rank-chip">&#129514; Brainiac</span><span class="rank-arrow">&rarr;</span>
+        <span class="rank-chip">&#129504; Mastermind</span><span class="rank-arrow">&rarr;</span>
+        <span class="rank-chip">&#128142; Genius</span><span class="rank-arrow">&rarr;</span>
         <span class="rank-chip active">&#128081; Big Brain</span>
       </div>
     </div>
@@ -1310,11 +797,11 @@
         <div class="cta-buttons">
           <a href="#" class="btn btn-primary">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-            App Store — Coming Soon
+            App Store &mdash; Coming Soon
           </a>
           <a href="#" class="btn btn-glass">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.807 1.626a1 1 0 010 1.732l-2.807 1.626L15.206 12l2.492-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
-            Google Play — Coming Soon
+            Google Play &mdash; Coming Soon
           </a>
         </div>
       </div>
@@ -1326,17 +813,14 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="footer-brand-logo">
-            <img src="logo.png" alt="Big Brain">
-            <span>Big Brain</span>
-          </div>
+          <div class="footer-brand-logo"><img src="logo.png" alt="Big Brain"><span>Big Brain</span></div>
           <p>The AI-powered study companion that helps you learn faster, study smarter, and achieve more.</p>
         </div>
         <div class="footer-col">
           <h4>Product</h4>
           <a href="#features">Features</a>
-          <a href="#iq-test">IQ Test</a>
           <a href="#subjects">Subjects</a>
+          <a href="#iq-test">IQ Test</a>
           <a href="#pricing">Pricing</a>
         </div>
         <div class="footer-col">
@@ -1350,9 +834,7 @@
           <a href="mailto:derrick@dpcdevelopments.com">Email Support</a>
         </div>
       </div>
-      <div class="footer-bottom">
-        &copy; 2025 DPC Developments. All rights reserved.
-      </div>
+      <div class="footer-bottom">&copy; 2025 DPC Developments. All rights reserved.</div>
     </div>
   </footer>
 
