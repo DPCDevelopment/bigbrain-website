@@ -41,3 +41,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+// ── Track App Store download clicks ──
+document.querySelectorAll('a[href*="apps.apple.com"]').forEach(link => {
+  link.addEventListener('click', () => {
+    // Save to localStorage for owner dashboard
+    try {
+      const clicks = JSON.parse(localStorage.getItem('bb_download_clicks') || '[]');
+      clicks.push(new Date().toISOString());
+      localStorage.setItem('bb_download_clicks', JSON.stringify(clicks));
+    } catch (e) {}
+    // Increment CountAPI counter
+    fetch('https://api.countapi.xyz/hit/bigbrainhw/downloads').catch(() => {});
+  });
+});

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Big Brain — Owner Dashboard</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d0d1a; color: #fff; min-height: 100vh; padding: 40px 20px; }
+    .container { max-width: 800px; margin: 0 auto; }
+    h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; color: #a78bfa; }
+    .subtitle { color: rgba(255,255,255,0.5); margin-bottom: 32px; font-size: 14px; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 32px; }
+    .stat-card { background: #1a1a2e; border: 1px solid #2d2d4a; border-radius: 16px; padding: 24px; text-align: center; }
+    .stat-value { font-size: 48px; font-weight: 800; color: #7c6aff; margin-bottom: 4px; }
+    .stat-label { font-size: 14px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px; }
+    .log-section { background: #1a1a2e; border: 1px solid #2d2d4a; border-radius: 16px; padding: 24px; }
+    .log-title { font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+    .log-entry { padding: 10px 0; border-bottom: 1px solid #2d2d4a; font-size: 13px; color: rgba(255,255,255,0.7); display: flex; justify-content: space-between; }
+    .log-entry:last-child { border-bottom: none; }
+    .log-date { color: #a78bfa; }
+    .empty { color: rgba(255,255,255,0.4); text-align: center; padding: 40px; }
+    .reset-btn { margin-top: 24px; background: #ef4444; color: #fff; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 600; }
+    .reset-btn:hover { background: #dc2626; }
+    .note { background: #1a1a2e; border: 1px solid #2d2d4a; border-radius: 12px; padding: 16px; margin-bottom: 24px; font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+    .note strong { color: #a78bfa; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Owner Dashboard</h1>
+    <p class="subtitle">Big Brain — Download Analytics</p>
+
+    <div class="note">
+      <strong>Note:</strong> This tracks clicks on the "Download on App Store" button on this website. 
+      For actual App Store downloads, check <strong>App Store Connect → Analytics → Downloads</strong>. 
+      This page uses a free counter service (CountAPI) so data persists across devices.
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-value" id="total-clicks">—</div>
+        <div class="stat-label">Total Download Clicks</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="today-clicks">—</div>
+        <div class="stat-label">Today</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="week-clicks">—</div>
+        <div class="stat-label">This Week</div>
+      </div>
+    </div>
+
+    <div class="log-section">
+      <div class="log-title">Recent Clicks</div>
+      <div id="click-log">
+        <div class="empty">Loading...</div>
+      </div>
+    </div>
+
+    <button class="reset-btn" onclick="resetStats()">Reset All Stats</button>
+  </div>
+
+  <script>
+    const STORAGE_KEY = 'bb_download_clicks';
+    const NAMESPACE = 'bigbrainhw';
+    const COUNTER_KEY = 'downloads';
+
+    // Load stats from localStorage (for click log) and CountAPI (for total)
+    async function loadStats() {
+      // Get total from CountAPI
+      try {
+        const resp = await fetch(`https://api.countapi.xyz/get/${NAMESPACE}/${COUNTER_KEY}`);
+        const data = await resp.json();
+        document.getElementById('total-clicks').textContent = data.value || 0;
+      } catch (e) {
+        // Fallback to localStorage
+        const clicks = getClicks();
+        document.getElementById('total-clicks').textContent = clicks.length;
+      }
+
+      // Local click log for today/week
+      const clicks = getClicks();
+      const now = new Date();
+      const todayStr = now.toISOString().split('T')[0];
+      const weekAgo = new Date(now - 7 * 24 * 60 * 60 * 1000);
+
+      const todayClicks = clicks.filter(c => c.startsWith(todayStr));
+      const weekClicks = clicks.filter(c => new Date(c) >= weekAgo);
+
+      document.getElementById('today-clicks').textContent = todayClicks.length;
+      document.getElementById('week-clicks').textContent = weekClicks.length;
+
+      // Render log
+      const logEl = document.getElementById('click-log');
+      if (clicks.length === 0) {
+        logEl.innerHTML = '<div class="empty">No clicks recorded yet. Clicks are tracked when visitors tap "Download on App Store" on the main site.</div>';
+      } else {
+        const recent = clicks.slice(-50).reverse();
+        logEl.innerHTML = recent.map((ts, i) => {
+          const d = new Date(ts);
+          return `<div class="log-entry"><span>Click #${clicks.length - i}</span><span class="log-date">${d.toLocaleDateString()} ${d.toLocaleTimeString()}</span></div>`;
+        }).join('');
+      }
+    }
+
+    function getClicks() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      } catch { return []; }
+    }
+
+    function resetStats() {
+      if (confirm('Are you sure you want to reset all click stats? This cannot be undone.')) {
+        localStorage.removeItem(STORAGE_KEY);
+        // Reset CountAPI
+        fetch(`https://api.countapi.xyz/set/${NAMESPACE}/${COUNTER_KEY}?value=0`).catch(() => {});
+        loadStats();
+      }
+    }
+
+    loadStats();
+  </script>
+</body>
+</html>
