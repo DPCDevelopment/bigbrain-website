@@ -42,16 +42,27 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// ── Track App Store download clicks ──
+// ── Track download clicks ──
+function trackDownloadClick() {
+  // Save to localStorage for owner dashboard
+  try {
+    const clicks = JSON.parse(localStorage.getItem('bb_download_clicks') || '[]');
+    clicks.push(new Date().toISOString());
+    localStorage.setItem('bb_download_clicks', JSON.stringify(clicks));
+  } catch (e) {}
+  // Increment CountAPI counter (persists across all devices)
+  fetch('https://api.countapi.xyz/hit/bigbrainhw/downloads').catch(() => {});
+}
+
+// Track any link that goes to the App Store
 document.querySelectorAll('a[href*="apps.apple.com"]').forEach(link => {
-  link.addEventListener('click', () => {
-    // Save to localStorage for owner dashboard
-    try {
-      const clicks = JSON.parse(localStorage.getItem('bb_download_clicks') || '[]');
-      clicks.push(new Date().toISOString());
-      localStorage.setItem('bb_download_clicks', JSON.stringify(clicks));
-    } catch (e) {}
-    // Increment CountAPI counter
-    fetch('https://api.countapi.xyz/hit/bigbrainhw/downloads').catch(() => {});
-  });
+  link.addEventListener('click', trackDownloadClick);
+});
+
+// Track any link/button that contains the word "download" (case-insensitive)
+document.querySelectorAll('a, button').forEach(el => {
+  const text = (el.textContent || '').toLowerCase();
+  if (text.includes('download') && !el.href?.includes('apps.apple.com')) {
+    el.addEventListener('click', trackDownloadClick);
+  }
 });
