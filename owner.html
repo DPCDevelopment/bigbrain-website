@@ -32,9 +32,9 @@
     <p class="subtitle">Big Brain — Download Analytics</p>
 
     <div class="note">
-      <strong>Note:</strong> This tracks clicks on the "Download on App Store" button on this website. 
+      <strong>Note:</strong> This tracks clicks on the "Download on App Store" button on this website (on this device/browser). 
       For actual App Store downloads, check <strong>App Store Connect → Analytics → Downloads</strong>. 
-      This page uses a free counter service (CountAPI) so data persists across devices.
+      Data is stored in your browser. Open this page on the same device you use to test the site.
     </div>
 
     <div class="stats-grid">
@@ -69,19 +69,11 @@
 
     // Load stats from localStorage (for click log) and CountAPI (for total)
     async function loadStats() {
-      // Get total from CountAPI
-      try {
-        const resp = await fetch(`https://api.countapi.xyz/get/${NAMESPACE}/${COUNTER_KEY}`);
-        const data = await resp.json();
-        document.getElementById('total-clicks').textContent = data.value || 0;
-      } catch (e) {
-        // Fallback to localStorage
-        const clicks = getClicks();
-        document.getElementById('total-clicks').textContent = clicks.length;
-      }
-
-      // Local click log for today/week
+      // Get total from localStorage
       const clicks = getClicks();
+      document.getElementById('total-clicks').textContent = clicks.length;
+
+      // Today/week counts
       const now = new Date();
       const todayStr = now.toISOString().split('T')[0];
       const weekAgo = new Date(now - 7 * 24 * 60 * 60 * 1000);
@@ -114,8 +106,7 @@
     function resetStats() {
       if (confirm('Are you sure you want to reset all click stats? This cannot be undone.')) {
         localStorage.removeItem(STORAGE_KEY);
-        // Reset CountAPI
-        fetch(`https://api.countapi.xyz/set/${NAMESPACE}/${COUNTER_KEY}?value=0`).catch(() => {});
+        localStorage.removeItem('bb_download_total');
         loadStats();
       }
     }

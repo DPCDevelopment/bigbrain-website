@@ -42,16 +42,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// ── Track download clicks ──
+// ── Track download clicks (localStorage-based) ──
 function trackDownloadClick() {
-  // Save to localStorage for owner dashboard
   try {
     const clicks = JSON.parse(localStorage.getItem('bb_download_clicks') || '[]');
     clicks.push(new Date().toISOString());
     localStorage.setItem('bb_download_clicks', JSON.stringify(clicks));
+    // Also increment a simple total counter
+    const total = parseInt(localStorage.getItem('bb_download_total') || '0', 10);
+    localStorage.setItem('bb_download_total', String(total + 1));
   } catch (e) {}
-  // Increment CountAPI counter (persists across all devices)
-  fetch('https://api.countapi.xyz/hit/bigbrainhw/downloads').catch(() => {});
 }
 
 // Track any link that goes to the App Store
